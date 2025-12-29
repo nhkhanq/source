@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import Layout2 from "../../layouts/Layout2";
+import Layout2 from "@/layouts/Layout2";
 
 const data = [
   { id: 1, name: "User A" },

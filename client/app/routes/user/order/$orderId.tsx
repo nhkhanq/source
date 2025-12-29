@@ -1,5 +1,5 @@
 import { useParams } from "react-router";
-import Layout2 from "../../../layouts/Layout2";
+import Layout2 from "@/layouts/Layout2";
 
 export default function UserOrderDetail() {
   const { orderId } = useParams();
