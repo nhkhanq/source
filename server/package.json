@@ -1,12 +1,36 @@
 {
-  "name": "server",
+  "name": "source-server",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon server.js",
+    "start": "node server.js",
+    "sync": "node src/config/sync.js",
+    "swagger-autogen": "node ./src/utils/swagger/swaggerAutogen.js"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.1.11",
+    "swagger-autogen": "^2.23.7",
+    "swagger-jsdoc": "^6.2.8"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^5.2.1",
+    "http-status-code": "^2.1.0",
+    "joi": "^18.0.2",
+    "jsonwebtoken": "^9.0.3",
+    "module-alias": "^2.2.3",
+    "mysql2": "^3.16.0",
+    "sequelize": "^6.37.7",
+    "swagger-ui-express": "^5.0.1"
+  },
+  "_moduleAliases": {
+    "@": "src"
+  }
 }
