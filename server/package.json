@@ -4,10 +4,10 @@
   "description": "",
   "main": "src/server.js",
   "scripts": {
-    "dev": "nodemon server.js",
-    "start": "node server.js",
+    "dev": "NODE_ENV=development nodemon server.js",
+    "start": "NODE_ENV=production node server.js",
     "sync": "node src/config/sync.js",
-    "swagger-autogen": "node ./src/utils/swagger/swaggerAutogen.js"
+    "swagger": "node ./src/utils/swagger/swaggerAutogen.js"
   },
   "keywords": [],
   "author": "",
@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "bcryptjs": "^3.0.3",
+    "casbin": "^5.46.0",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^5.2.1",

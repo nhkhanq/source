@@ -1,0 +1,14 @@
+p, admin, user, read
+p, admin, user, write
+p, admin, user, delete
+p, admin, product, read
+p, admin, product, write
+p, admin, product, delete
+
+p, manager, user, read
+p, manager, product, read
+p, manager, product, write
+
+p, user, product, read
+p, user, profile, read
+p, user, profile, write

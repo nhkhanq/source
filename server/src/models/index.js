@@ -1,10 +1,5 @@
-const User = require('./user.model');
-const Permission = require('./permission.model');
-const Role = require('./role.model');
-require('./associations');
+const User = require("./user.model");
 
 module.exports = {
   User,
-  Permission,
-  Role,
 };

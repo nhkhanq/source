@@ -4,8 +4,13 @@ const swaggerUI = require("swagger-ui-express");
 
 const { testConnection } = require("@/config/database");
 const routers = require("@/routers");
+const { errorHandler, notFound } = require("@/middleware/errorHandler");
+const { initCasbin } = require("@/middleware/casbin");
 
 const app = express();
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 app.use(
   cors({
@@ -23,8 +28,7 @@ try {
   console.log("Swagger file not found.");
 }
 
-// Use routers
-app.use("/api/v1", routers);
+app.use("/api", routers);
 
 app.get("/health", (req, res) => {
   res.json({
@@ -35,6 +39,9 @@ app.get("/health", (req, res) => {
 });
 
 testConnection();
+initCasbin();
+
+app.use(notFound);
 
 // const distPath = path.join(__dirname, "src", "view", "dist");
 // app.use(express.static(distPath));

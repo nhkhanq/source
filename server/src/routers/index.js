@@ -1,16 +1,17 @@
 const express = require("express");
 const router = express.Router();
+const userRoutes = require("./user.routes");
 
-/**
- * @summary
- * @returns {object}
- */
 router.get("/health", (req, res) => {
   res.json({
-    status: "OK",
-    message: "Server is healthy",
-    timestamp: new Date().toISOString(),
+    success: true,
+    data: {
+      status: "OK",
+      timestamp: new Date().toISOString(),
+    },
   });
 });
+
+router.use("/users", userRoutes);
 
 module.exports = router;

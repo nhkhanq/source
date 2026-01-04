@@ -1,4 +1,4 @@
-services:  
+services:
   mysql:
     container_name: sample-mysql
     image: mysql:8.0.44
@@ -9,6 +9,6 @@ services:
       - MYSQL_USER=sample_user
       - MYSQL_PASSWORD=123456
     ports:
-      - "3307:3306"  
+      - "3310:3306"
     volumes:
       - ./docker-volumes/mysql:/var/lib/mysql
