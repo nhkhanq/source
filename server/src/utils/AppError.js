@@ -1,8 +1,5 @@
 const HTTP_STATUS = require("@/constants/httpStatus");
 
-/**
- * Custom Error - Trả về error code thay vì message
- */
 class AppError extends Error {
   constructor(
     errorCode,

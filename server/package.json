@@ -4,8 +4,8 @@
   "description": "",
   "main": "src/server.js",
   "scripts": {
-    "dev": "NODE_ENV=development nodemon server.js",
-    "start": "NODE_ENV=production node server.js",
+    "dev": "cross-env NODE_ENV=development nodemon server.js",
+    "start": "cross-env NODE_ENV=production node server.js",
     "sync": "node src/config/sync.js",
     "swagger": "node ./src/utils/swagger/swaggerAutogen.js"
   },
@@ -13,6 +13,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "cross-env": "^10.1.0",
     "nodemon": "^3.1.11",
     "swagger-autogen": "^2.23.7",
     "swagger-jsdoc": "^6.2.8"
