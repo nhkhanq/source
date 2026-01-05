@@ -13,6 +13,13 @@ const definitions = {
     email: "john_updated@example.com",
     status: "active",
   },
+  CreateUserRequest: {
+    username: "john_doe",
+    email: "john@example.com",
+    password: "123456",
+    role: "user",
+    status: "active",
+  },
 
   UserResponse: {
     id: 1,

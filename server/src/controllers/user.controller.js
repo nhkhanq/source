@@ -43,6 +43,11 @@ class UserController {
     return success(res, user);
   }
 
+  async createUser(req, res) {
+    const user = await userService.createUser(req.body);
+    return success(res, user);
+  }
+
   async updateUser(req, res) {
     const user = await userService.updateUser(req.params.id, req.body);
     return success(res, user);

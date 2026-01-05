@@ -17,8 +17,17 @@ const updateUserSchema = Joi.object({
   status: Joi.string().valid("active", "inactive", "banned").optional(),
 });
 
+const createUserSchema = Joi.object({
+  username: Joi.string().min(3).max(50).required(),
+  email: Joi.string().email().required(),
+  password: Joi.string().min(6).required(),
+  role: Joi.string().valid("admin", "manager", "user").optional(),
+  status: Joi.string().valid("active", "inactive", "banned").optional(),
+});
+
 module.exports = {
   registerSchema,
   loginSchema,
   updateUserSchema,
+  createUserSchema,
 };

@@ -6,9 +6,8 @@ const { auth } = require("@/middleware/auth");
 const { checkPermission } = require("@/middleware/casbin");
 const asyncHandler = require("@/middleware/asyncHandler");
 const {
-  registerSchema,
-  loginSchema,
   updateUserSchema,
+  createUserSchema,
 } = require("@/validators/user.validator");
 
 router.get(
@@ -28,7 +27,6 @@ router.get(
   asyncHandler(userController.getMe.bind(userController))
 );
 
-// Admin routes với Casbin
 router.get(
   "/",
   // #swagger.tags = ['Admin']
@@ -47,6 +45,33 @@ router.get(
   auth,
   checkPermission("user", "read"),
   asyncHandler(userController.getUserById.bind(userController))
+);
+
+router.post(
+  "/",
+  // #swagger.tags = ['Admin']
+  // #swagger.description = 'Create new user (Admin only)'
+  // #swagger.security = [{ "bearerAuth": [] }]
+  /* #swagger.requestBody = {
+    required: true,
+    content: {
+      "application/json": {
+        schema: { $ref: "#/components/schemas/CreateUserRequest" }
+      }
+    }
+  } */
+  /* #swagger.responses[201] = {
+    description: "User created successfully",
+    content: {
+      "application/json": {
+        schema: { $ref: "#/components/schemas/UserResponse" }
+      }
+    }
+  } */
+  auth,
+  checkPermission("user", "write"),
+  validate(createUserSchema),
+  asyncHandler(userController.createUser.bind(userController))
 );
 
 router.put(
