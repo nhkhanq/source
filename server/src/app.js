@@ -1,4 +1,5 @@
 const express = require("express");
+const path = require("path");
 const cors = require("cors");
 const swaggerUI = require("swagger-ui-express");
 
@@ -41,9 +42,13 @@ app.get("/health", (req, res) => {
 testConnection();
 initCasbin();
 
-app.use(notFound);
+const distPath = path.join(__dirname, "..", "..", "client", "dist");
+app.use(express.static(distPath));
 
-// const distPath = path.join(__dirname, "src", "view", "dist");
-// app.use(express.static(distPath));
+app.use((req, res, next) => {
+  res.sendFile(path.join(distPath, "index.html"));
+});
+
+app.use(notFound);
 
 module.exports = app;
