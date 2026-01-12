@@ -5,7 +5,7 @@ const swaggerUI = require("swagger-ui-express");
 
 const { testConnection } = require("@/config/database");
 const routers = require("@/routers");
-const { errorHandler, notFound } = require("@/middleware/errorHandler");
+const { notFound } = require("@/middleware/errorHandler");
 const { initCasbin } = require("@/middleware/casbin");
 
 const app = express();

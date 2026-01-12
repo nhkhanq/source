@@ -88,7 +88,7 @@ class UserService {
       throw new AppError(ERROR_CODES.USER_BANNED, HTTP_STATUS.FORBIDDEN);
     }
 
-    if (user.status === "inactive") {
+    if (user.status === "0") {
       throw new AppError(ERROR_CODES.USER_INACTIVE, HTTP_STATUS.FORBIDDEN);
     }
 
